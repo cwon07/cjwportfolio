@@ -26,6 +26,7 @@ export default function ContentList ({
 
     const component = useRef(null)
     const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
+
     const revealRef = useRef(null)
     const [currentItem, setCurrentItem] = useState<null | number>(null)
     const lastMousePos = useRef({ x: 0, y: 0 })
@@ -127,7 +128,10 @@ export default function ContentList ({
                     {isFilled.keyText(item.data.title) && (
                         <li
                         key={index} 
-                        ref={(el) => (itemsRef.current[index] = el)}
+                        ref={(el) => {
+                            if (el) {itemsRef.current[index] = el}
+                            }
+                        }
                         className="list-item opacity-0"
                         onMouseEnter={() => onMouseEnter(index)}
                         >
