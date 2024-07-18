@@ -130,8 +130,7 @@ export default function ContentList ({
                         key={index} 
                         ref={(el) => {
                             if (el) {itemsRef.current[index] = el}
-                            }
-                        }
+                            }}
                         className="list-item opacity-0"
                         onMouseEnter={() => onMouseEnter(index)}
                         >
