@@ -7,7 +7,8 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+  },
   plugins: [require("@tailwindcss/typography")],
 };
 export default config;

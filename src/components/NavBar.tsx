@@ -8,6 +8,9 @@ import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
+import { Josefin_Sans } from "next/font/google";
+
+const josefin_sans = Josefin_Sans({ weight: ['500'], subsets:['latin']});
 
 export default function NavBar({
   settings,
@@ -19,28 +22,30 @@ export default function NavBar({
 
   return (
     <nav aria-label="Main navigation">
-      <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
+      <ul className="flex flex-col justify-between rounded-b-lg px-4 py-4 md:m-4 md:flex-row md:items-center md:rounded-xl">
+        <div className={josefin_sans.className}>
         <div className="flex items-center justify-between">
           <NameLogo name={settings.data.name} />
           <button
             aria-expanded={open}
             aria-label="Open menu"
-            className="block p-2 text-2xl text-slate-800 md:hidden"
+            className="block p-2 text-2xl text-[#F2E9E4] md:hidden"
             onClick={() => setOpen(true)}
           >
             <MdMenu />
           </button>
         </div>
+        </div>
         <div
           className={clsx(
-            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-slate-50 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
+            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-[#9A8C98] pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
           <button
             aria-label="Close menu"
             aria-expanded={open}
-            className="fixed right-4 top-3 block p-2 text-2xl text-slate-800 md:hidden "
+            className="fixed right-4 top-3 block p-2 text-2xl text-[#F2E9E4] md:hidden "
             onClick={() => setOpen(false)}
           >
             <MdClose />
@@ -50,7 +55,7 @@ export default function NavBar({
               <li className="first:mt-8">
                 <PrismicNextLink
                   className={clsx(
-                    "group relative block overflow-hidden rounded px-3 text-3xl font-bold text-slate-900 ",
+                    "group relative block overflow-hidden rounded px-3 text-3xl font-bold text-[#F2E9E4]",
                   )}
                   field={link}
                   onClick={() => setOpen(false)} // closes the hamburger menu after a page has been clicked
@@ -62,7 +67,7 @@ export default function NavBar({
                 >
                   <span
                     className={clsx(
-                      "absolute inset-0 z-0 h-full translate-y-12 rounded bg-green-300 transition-transform duration-300 ease-in-out group-hover:translate-y-0",
+                      "absolute inset-0 z-0 h-full translate-y-12 rounded bg-[#C9ADA7] transition-transform duration-300 ease-in-out group-hover:translate-y-0",
                       pathname.includes(asLink(link) as string)
                         ? "translate-y-6"
                         : "translate-y-18",
@@ -99,7 +104,7 @@ function NameLogo({ name }: { name: KeyTextField }) {
     <Link
       href="/"
       aria-label="Home page"
-      className="text-xl font-extrabold tracking-tighter text-slate-900"
+      className="text-3xl font-extrabold tracking-tighter text-[#F2E9E4]"
     >
       {name}
     </Link>
@@ -120,7 +125,7 @@ function DesktopMenu({
           <li>
             <PrismicNextLink
               className={clsx(
-                "group relative block overflow-hidden rounded px-3 py-1 text-base font-bold text-slate-900",
+                "group relative block overflow-hidden rounded px-3 py-1 text-base font-bold text-[#F2E9E4]",
               )}
               field={link}
               aria-current={
@@ -129,7 +134,7 @@ function DesktopMenu({
             >
               <span
                 className={clsx(
-                  "absolute inset-0 z-0 h-full rounded bg-green-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
+                  "absolute inset-0 z-0 h-full rounded bg-[#C9ADA7] transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
                   pathname.includes(asLink(link) as string)
                     ? "translate-y-6"
                     : "translate-y-8",
