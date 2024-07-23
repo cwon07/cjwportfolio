@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#22223B] text-[#F2E9E4]"> 
+    <html lang="en" className="bg-[#22223B] text-[#F2E9E4]">
       <body className={clsx(urbanist.className, "relative min-h-screen")}>
         <Header />
         {children}
