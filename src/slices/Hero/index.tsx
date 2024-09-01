@@ -69,7 +69,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
         <Shapes />
         <div className="col-start-1 md:row-start-1" data-speed=".2">    
-          <h4 className="mb-8 text-9xl font-extrabold leading-none tracking-tighter" aria-label={slice.primary.first_name + " " + slice.primary.last_name}>  
+          <h4 className="mb-8 text-7xl font-extrabold leading-none tracking-tighter" aria-label={slice.primary.first_name + " " + slice.primary.last_name}>  
             <span className="block text-[#F2E9E4]">{renderLetters(slice.primary.first_name, "first")}</span>
             <span className="-mt-[.2em] block text-[#C9ADA7]">{renderLetters(slice.primary.last_name, "last")}</span>   
           </h4> 
